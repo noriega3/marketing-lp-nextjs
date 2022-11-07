@@ -1,0 +1,8 @@
+@import "../../variables";
+@import "../../mixins";
+.form_label{
+    @include floating-label();
+}
+.form_input{
+    @include input-base();
+}

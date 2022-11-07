@@ -1,0 +1,46 @@
+@import "../_variables.scss";
+.topBanner{
+    text-align: center;
+	background: #f5f5f5;
+	color: #414141;
+	font-family: "Open Sans",sans-serif;
+	font-weight: 600;
+	border-bottom: 3px solid #ddd;
+	display: block;
+	font-size: 18px;
+	padding: 13px 0;
+    @media (min-width: $min-tablet){
+        font-size: 22px;
+    }
+
+    .siteDescription{
+        margin: 0;
+    }
+}
+.header{
+	position: relative;
+	top: auto;
+	width: 100%;
+	background: #fff;
+	border-bottom: 3px solid #ddd;
+	z-index: 2;
+    &.fixed{
+        position: fixed;
+        top: 0;
+    }
+}
+.twoColumn{
+    display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	padding: 1rem;
+}
+
+.customLogoLink img{
+	max-height: 40px;
+	width: 100%;
+    @media (min-width: $min-tablet){
+        max-height: 60px;
+    }
+}

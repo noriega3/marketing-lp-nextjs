@@ -1,0 +1,107 @@
+@import '../_mixins.scss';
+@import '../_variables.scss';
+
+.root{
+
+    min-height: 85px;
+    
+    &.set_alt_colors{
+        $primary_error_color: #fff;
+        .btn_submit{
+            @include default-button();
+        }
+        .form_input_error{
+            @include input-error($primary_error_color);
+        }
+        .fips_container{
+            color: #000;
+        }
+    }
+    &.container{
+        height: auto;
+        margin-bottom: .5em;
+        @media (min-width: 768px){
+            height: 85px;
+            margin-bottom: 0;
+        }
+        & .error-general{
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.fips_container{
+    background: #f0f0f0;
+    padding: 1.5rem 3rem;
+    outline: dotted 1px #333;
+    select{
+        min-width: 175px;
+    }
+    &.has_error{
+        color: $primary_error_color;
+        span{
+            color: $primary_error_color;
+        }
+    }
+}
+.zipfipinputcontainer,
+.zipinputcontainer{
+	display: flex;
+	flex-direction: column;
+    position: relative;
+    @media (min-width: 768px){
+        flex-direction: row;
+    }
+    &.zipfipinputcontainer .zip_container{
+        display: none;
+    }
+}
+.zip_container{
+    text-align: left;
+    position: relative;
+    display: inline-block;
+
+    &.has_error{
+        color: $primary_error_color;
+        span{
+            color: $primary_error_color;
+        }
+    }
+}
+
+.form_label{
+    @include floating-label();
+    > span {
+        top: -0.4rem;
+        left: 0.7rem;
+    }
+}
+
+.form_input{
+    @include input-base();
+    background-color: #fff;
+    max-width: 250px;
+    @media (min-width: 768px){
+        max-width: 204px;
+    }
+}
+
+.form_input_error{
+    @include input-error($primary_error_color);
+}
+
+.btn_submit{
+    @include primary-button();
+    & & & & &.set_alt_colors {
+        @include default-button();
+    }
+        margin-left: 0;
+        padding: 12.5px 40px;
+        align-self: flex-start;
+        margin-top: 25px;
+    @media (min-width: 768px){
+        margin-left: 10px;
+        align-self: center;
+        margin-top:0;
+    }
+}

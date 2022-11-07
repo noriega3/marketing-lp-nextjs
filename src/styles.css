@@ -1,0 +1,20 @@
+/* GAM - fonts
+--------------------------------------------- */
+
+/* new layout */
+.article-page{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.article-page article{
+	display: flex;
+	text-align: center;
+}
+
+/* when fixed */
+.main.fixed article{
+	margin-top: 101px;
+}
+

@@ -1,0 +1,36 @@
+@import "../../../_mixins.scss";
+
+.step_1_container{
+    :global .step_container{
+        max-width: 685px;
+        justify-items: center;
+        margin: 2rem auto 0;
+    }
+    :global .zipfipinputcontainer{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .zip_container{
+            margin-bottom: 2rem;
+
+        }
+
+        input[name="zip"]{
+            min-width: 250px;
+            max-width: 100%;
+        }
+
+        button[type="submit"]{
+            @include primary-button("slim");
+            width: 100%;
+            max-width: 175px;
+            font-size: 1.5rem;
+            border-radius: 24px;
+            @media (min-width: 768px){
+                margin: .5rem;
+            }
+
+        }
+    }
+}

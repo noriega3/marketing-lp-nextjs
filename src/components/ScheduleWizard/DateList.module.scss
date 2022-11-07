@@ -1,0 +1,92 @@
+@import "../../variables";
+@import "../../mixins";
+
+.date_container{
+    padding: 0;
+}
+
+.form_legend{
+    @include floating-legend();
+    &.has_error{
+        border: 1px solid $primary_error_color;
+    }
+}
+.date_input_container{
+	display: flex;
+	justify-content: space-between;
+	max-width: 90vw;
+	overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 0.5rem;
+}
+.option{
+    margin: 0.5rem;
+        div {
+            display: block;
+            padding: 1rem 1.6rem;
+            min-width: 95px;
+            line-height: 1.5rem;
+            border: 1px solid;
+            list-style: none;
+            cursor: pointer;
+            transition-property: background-color, border-color, color;
+            transition-duration: 0.2s;
+            transition-timing-function: ease;
+            outline: none;
+            box-shadow: none;
+        }
+    input[type="radio"]{
+        opacity: 0;
+        height: 0;
+        width: 0;
+
+        &:not([disabled])+div.selector:focus,
+        &:not([disabled]):focus+div.selector{
+            box-shadow: rgb(255 255 255) 0px 0px 0px 1px, rgb(125 63 152) 0px 0px 2px 3px, rgb(84 74 159) 0px 0px 2px 4px;
+        }
+        &:not([disabled]):active+div.selector,
+        &:not([disabled])+div.selector:active
+        {
+            background-color: rgb(209, 209, 213);
+            border-color: rgb(84, 84, 90);
+            color: rgb(42, 42, 51);
+        }
+        &:not([disabled]):hover div.selector,
+        &:not([disabled])+div.selector:hover{
+            color: #414141;
+            background-color: rgb(241, 241, 244);
+            border-color: rgb(167, 166, 171);
+        }
+    }
+}
+
+.selector{
+    display: block;
+    padding: 1rem 1.6rem;
+    min-width: 95px;
+    line-height: 1.5rem;
+    border: 1px solid;
+    list-style: none;
+    cursor: pointer;
+    transition-property: background-color, border-color, color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    outline: none;
+    box-shadow: none;
+    span{
+        display: block;
+        text-align: center;
+        white-space: nowrap;
+    }
+}
+
+.option_selected{
+    .selector{
+        color: #414141;
+        background: #efeef7;
+        border: 2px solid #544a9f;
+        line-height: 1.5rem;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+}

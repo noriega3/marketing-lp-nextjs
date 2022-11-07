@@ -1,0 +1,21 @@
+@import "../_variables.scss";
+
+.tfnLink{
+    color: $link_color;
+
+    &.white{
+        color: #fff;
+    }
+    &.primary{
+        color: $primary_color;
+    }
+    &.alt{
+        color: $link_alt_color;
+    }
+}
+.tfnLarge{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.9em;
+	font-weight: bold;
+    line-height: 43px;
+}

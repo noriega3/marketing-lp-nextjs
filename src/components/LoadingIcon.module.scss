@@ -1,0 +1,106 @@
+
+
+@keyframes loading-button {
+    0% {
+        height: 15px;
+        background-color: #db80ff;
+    }
+
+    20% {
+        height: 15px;
+    }
+
+
+    40% {
+        height: 20px;
+    }
+
+    80% {
+        height: 15px;
+    }
+
+    to {
+        height: 15px;
+        background-color: #2B2E63;
+    }
+}
+
+@keyframes loading-normal {
+    0% {
+        height: 50px;
+        background-color: #db80ff;
+    }
+
+    20% {
+        height: 50px;
+    }
+
+
+    40% {
+        height: 70px;
+    }
+
+    80% {
+        height: 50px;
+    }
+
+    to {
+        height: 50px;
+        background-color: #2B2E63;
+    }
+
+}
+
+/* Loading indicator */
+.loading_rects {
+    display: flex;
+    margin: auto auto 30px;
+    flex-direction: row;
+    width: 50px;
+    height: 90px;
+
+    .rect {
+        width: 10px;
+        height: 70px;
+        margin: auto;
+        border-radius: 4px;
+        transition: background-color .2s;
+
+        &.rect_1 {
+            animation: loading-normal 1.2s cubic-bezier(.445,.05,.55,.95) 0s infinite        
+        }
+        
+        &.rect_2 {
+            animation: loading-normal 1.2s cubic-bezier(.445,.05,.55,.95) .2s infinite
+        }
+        
+        &.rect_3 {
+            animation: loading-normal 1.2s cubic-bezier(.445,.05,.55,.95) .4s infinite
+        }
+    }
+
+    
+
+    &.button{
+        width: 18px;
+        height: 20px;
+        margin: 0 20px;
+        .rect{
+            width: 5px;
+            height: 35px;
+            &.rect_1 {
+                animation: loading-button 1.2s cubic-bezier(.445,.05,.55,.95) 0s infinite        
+            }
+            
+            &.rect_2 {
+                animation: loading-button 1.2s cubic-bezier(.445,.05,.55,.95) .2s infinite
+            }
+            
+            &.rect_3 {
+                animation: loading-button 1.2s cubic-bezier(.445,.05,.55,.95) .4s infinite
+            }
+        }
+    }
+
+}
+

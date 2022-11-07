@@ -1,0 +1,208 @@
+@import '_variables.scss';
+
+/*********************/
+/* Buttons */
+/*********************/
+/* Base */
+@mixin button-base($size: default){
+    font-family: 'Public Sans Medium', Helvetica, Arial, sans-serif;
+	letter-spacing: .4px;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    @if $size == "slim" {
+        padding: 6px 12px;
+    } @else {
+        padding: 12.5px 40px;
+        line-height: 1.42857;
+    }
+    font-size: 18px;
+    border-radius: 24px;
+    @media (min-width: 768px){
+        margin-left: 10px;
+        align-self: center;
+        margin-top:0;
+    }
+    &:hover, &:focus, &:focus-within {
+        text-decoration: underline;
+    }
+    &:disabled{
+        opacity: .8;
+        cursor: not-allowed
+    }
+}
+
+/* Primary colored (white over primary bg) Button */
+@mixin primary-button($size: default){
+    @include button-base($size);
+    color: #fff;
+    background-color: $primary_color;
+    border-color: $primary_alt_color;
+    
+    &:not(:disabled):hover, &:not(:disabled):focus, &:not(:disabled):focus-within {
+        color: #fff;
+        background-color: #515263;
+        border-color: #2B2E63;
+    }
+}
+
+/* Default (primary over white bg) Button  */
+@mixin default-button($size: default){
+    @include button-base($size);
+    color: $primary_color;
+    background-color: #fff;
+    border-color: #fff;
+    &:not(:disabled):hover, &:not(:disabled):focus, &:not(:disabled):focus-within {
+        color: $primary_color;
+        background-color: #e6e6e6;
+        border-color: #e0e0e0;
+    }
+}
+/*********************/
+/* Forms */
+/*********************/
+
+/* Base Inner Label */
+@mixin inner-label-base(){
+    width: auto;
+    padding: 0 0.5rem;
+    z-index: 1;
+    white-space: nowrap;
+    text-transform: uppercase;
+    background: white;
+    letter-spacing: .14em;
+    font-weight: 600;
+    color: #414141;
+    -webkit-transition: all .2s; 
+    @-moz-document url-prefix() { /* firefox labels */
+        top: 0.4rem;
+    }
+}
+
+/* Form Label */
+@mixin floating-label(){
+    position: relative;
+	margin-bottom: 5px;
+    display: block;
+
+
+    > span {
+        @include inner-label-base();
+        position: absolute;   
+        top: -0.7rem;
+        left: 1rem;
+    }
+    &.has_error{
+        color: $primary_error_color;
+        font-weight: bold;        
+    }
+}
+
+/* Legend "Label" (time/date radio fieldsets */
+@mixin floating-legend(){
+    @include inner-label-base();
+    margin: 3px 3px 3px 15px;
+    text-align: left;
+}
+
+/* Select */
+@mixin select-base(){
+    color: #333;
+    border: 2px solid #414141;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;
+	height: 60px;
+    padding: 15.5px 16px;
+    font-size: 18px;
+    line-height: 1.33333;
+    border-radius: 0;
+    margin-bottom: 0;
+    display: inline-block;
+    vertical-align: middle;
+	width: 100%;
+    @media (min-width: 768px){
+        width: auto;
+        font-size: 22px;
+    }
+
+    &:focus, &:focus-within  {
+        box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
+        border-color: $primary_color;
+        outline: 4px solid;
+        outline-color: rgba(177,140,193,0.35);
+    }
+
+    &[aria-invalid=true]{
+        border: 2px solid $primary_error_color;
+    }    
+}
+
+/* Text Inputs */
+@mixin input-base(){
+    color: #333;
+    border: 2px solid #414141;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;
+	height: 60px;
+    padding: 15.5px 16px;
+    font-size: 18px;
+    border-radius: 0;
+    margin-bottom: 0;
+    display: inline-block;
+    vertical-align: middle;
+	width: 100%;
+
+    @media (min-width: 768px){
+        width: auto;
+        font-size: 22px;
+    }
+
+    &:focus, &:focus-within  {
+        box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
+        border-color: $primary_color;
+        outline: 4px solid;
+        outline-color: rgba(177,140,193,0.35);
+    }
+
+    &[aria-invalid=true]{
+        border: 2px solid $primary_error_color;
+    }    
+}
+
+/* Form Errors */
+@mixin input-error($primary_error_color){
+    color: $primary_error_color;
+    display: block;
+    position: absolute;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+/* Form Error Color Handler */
+@mixin container-error-handler(){
+
+    &.has_error{
+        &:where(fieldset){
+            border: 1px solid $primary_error_color;
+            legend{
+                color: $primary_error_color;
+            }
+        }
+        label{
+            span{
+                color: 1px solid $primary_error_color;
+            }
+            input{
+                border: 2px solid $primary_error_color;
+            }
+        }
+
+    }
+}
